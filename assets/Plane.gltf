@@ -3946,7 +3946,12 @@
 				"b_settings":0,
 				"b_export":1,
 				"export_path":"/Volumes/HFIAD/Candyland/export/",
-				"s_output":"exporting..."
+				"s_output":"exporting...",
+				"b_renderer":0,
+				"b_player":0,
+				"b_interactive":1,
+				"b_show_env_sky":1,
+				"b_cubemap_background":1
 			},
 			"name":"Scene",
 			"nodes":[
