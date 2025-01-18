@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+    <!-- Generated automatically by AFRAME Exporter for Blender - https://silverslade.itch.io/a-frame-blender-exporter -->
+    <!-- MIT License: https://github.com/silverslade/aframe_blender_exporter/blob/master/LICENSE -->
+    <head>
+        <title>WebXR Application</title>
+        <link rel="icon" type="image/png" href="favicon.ico"/>
+        <meta name="description" content="3D Application">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.0/dist/aframe-extras.min.js"></script>
+        <script type="text/javascript" src="js/webxr.js"></script>
+        <script type="text/javascript" src="js/joystick.js"></script>
+        <script type="text/javascript" src="js/camera-cube-env.js"></script>
+        
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body onload="init();">
+        <a-scene   shadow="type: basic; autoUpdate: false;" renderer="antialias: false; colorManagement: false; physicallyCorrectLights: false;">
+            <!-- Assets -->
+            <a-assets>
+				<a-asset-item id="Loli-Dunkel-Gestreift-Kugel-CW" src="./assets/Loli-Dunkel-Gestreift-Kugel-CW.gltf"></a-asset-item>
+				<a-asset-item id="Loli-Dunkel-Gestreift-Stiel-CW" src="./assets/Loli-Dunkel-Gestreift-Stiel-CW.gltf"></a-asset-item>
+				<a-asset-item id="Loli-Flach-Spirale-CW" src="./assets/Loli-Flach-Spirale-CW.gltf"></a-asset-item>
+				<a-asset-item id="Loli-Flach-Spirale-CW.001" src="./assets/Loli-Flach-Spirale-CW.001.gltf"></a-asset-item>
+				<a-asset-item id="Loli-Flach-Spirale-Stiel-CW" src="./assets/Loli-Flach-Spirale-Stiel-CW.gltf"></a-asset-item>
+				<a-asset-item id="Loli-Flach-Spirale-Stiel-CW.001" src="./assets/Loli-Flach-Spirale-Stiel-CW.001.gltf"></a-asset-item>
+				<a-asset-item id="Loli-Gestreift-Rot-Kugel-CW" src="./assets/Loli-Gestreift-Rot-Kugel-CW.gltf"></a-asset-item>
+				<a-asset-item id="Loli-Gestreift-Rot-Stiel-CW" src="./assets/Loli-Gestreift-Rot-Stiel-CW.gltf"></a-asset-item>
+				<a-asset-item id="Loli-Pink-Kugel-CW" src="./assets/Loli-Pink-Kugel-CW.gltf"></a-asset-item>
+				<a-asset-item id="Loli-Pink-Kugel-liegend" src="./assets/Loli-Pink-Kugel-liegend.gltf"></a-asset-item>
+				<a-asset-item id="Loli-Pink-Stiel-CW" src="./assets/Loli-Pink-Stiel-CW.gltf"></a-asset-item>
+				<a-asset-item id="Loli-Pink-Stiel-liegend" src="./assets/Loli-Pink-Stiel-liegend.gltf"></a-asset-item>
+				<a-asset-item id="Plane" src="./assets/Plane.gltf"></a-asset-item>
+				<a-asset-item id="Zaeltli-Spirale--unten-01" src="./assets/Zaeltli-Spirale--unten-01.gltf"></a-asset-item>
+				<a-asset-item id="Zaeltli-Spirale--unten-02" src="./assets/Zaeltli-Spirale--unten-02.gltf"></a-asset-item>
+				<a-asset-item id="Zaeltli-Spirale-CW" src="./assets/Zaeltli-Spirale-CW.gltf"></a-asset-item>
+				<a-asset-item id="Zaeltli-Spirale-CW.001" src="./assets/Zaeltli-Spirale-CW.001.gltf"></a-asset-item>
+				<a-asset-item id="Zaeltli-Spirale-CW.002" src="./assets/Zaeltli-Spirale-CW.002.gltf"></a-asset-item>
+				<a-asset-item id="Zaeltli-Spirale-CW.003" src="./assets/Zaeltli-Spirale-CW.003.gltf"></a-asset-item>
+				<a-asset-item id="Zaeltli-Spirale-unten-03" src="./assets/Zaeltli-Spirale-unten-03.gltf"></a-asset-item>
+				<a-asset-item id="Zaeltli-Spirale-unten-04" src="./assets/Zaeltli-Spirale-unten-04.gltf"></a-asset-item>
+				<a-asset-item id="zuckerstange" src="./assets/zuckerstange.gltf"></a-asset-item>
+				<a-asset-item id="zuckerstange.001" src="./assets/zuckerstange.001.gltf"></a-asset-item>
+				<a-asset-item id="zuckerstange_unten" src="./assets/zuckerstange_unten.gltf"></a-asset-item>
+                <img id="sky"                 src="./resources/sky.jpg">
+                <img id="icon-play"           src="./resources/play.png">
+                <img id="icon-pause"          src="./resources/pause.png">
+                <img id="icon-play-skip-back" src="./resources/play-skip-back.png">
+                <img id="icon-mute"           src="./resources/mute.png">
+                <img id="icon-volume-low"     src="./resources/volume-low.png">
+                <img id="icon-volume-high"    src="./resources/volume-high.png">
+            </a-assets>
+
+            <!-- Entities -->
+            
+			<a-entity id="#Loli-Dunkel-Gestreift-Kugel-CW" gltf-model="#Loli-Dunkel-Gestreift-Kugel-CW"  scale="1 1 1" position="-5.361065864562988 3.157872438430786 6.638459205627441" visible="true" shadow="cast: false" ></a-entity>
+			<a-entity id="#Loli-Dunkel-Gestreift-Stiel-CW" gltf-model="#Loli-Dunkel-Gestreift-Stiel-CW"  scale="1 1 1" position="-5.368549823760986 0.9529086351394653 6.656424522399902" visible="true" shadow="cast: false" ></a-entity>
+			<a-entity id="#Loli-Flach-Spirale-CW" gltf-model="#Loli-Flach-Spirale-CW"  scale="1 1 1" position="2.9677674770355225 3.4725406169891357 -0.7923380136489868" visible="true" shadow="cast: false" ></a-entity>
+			<a-entity id="#Loli-Flach-Spirale-CW.001" gltf-model="#Loli-Flach-Spirale-CW.001"  scale="1 1 1" position="-0.7751144170761108 -5.284152030944824 3.8569869995117188" visible="true" shadow="cast: false" ></a-entity>
+			<a-entity id="#Loli-Flach-Spirale-Stiel-CW" gltf-model="#Loli-Flach-Spirale-Stiel-CW"  scale="1 1 1" position="2.9817845821380615 1.24222993850708 -0.7837761044502258" visible="true" shadow="cast: false" ></a-entity>
+			<a-entity id="#Loli-Flach-Spirale-Stiel-CW.001" gltf-model="#Loli-Flach-Spirale-Stiel-CW.001"  scale="1 1 1" position="-1.5714884996414185 -3.850886344909668 5.3689703941345215" visible="true" shadow="cast: false" ></a-entity>
+			<a-entity id="#Loli-Gestreift-Rot-Kugel-CW" gltf-model="#Loli-Gestreift-Rot-Kugel-CW"  scale="1 1 1" position="-2.119539260864258 3.2927427291870117 1.1176402568817139" visible="true" shadow="cast: false" ></a-entity>
+			<a-entity id="#Loli-Gestreift-Rot-Stiel-CW" gltf-model="#Loli-Gestreift-Rot-Stiel-CW"  scale="1 1 1" position="-2.1184897422790527 1.307666301727295 1.1133359670639038" visible="true" shadow="cast: false" ></a-entity>
+			<a-entity id="#Loli-Pink-Kugel-CW" gltf-model="#Loli-Pink-Kugel-CW"  scale="1 1 1" position="-8.024164199829102 2.3179931640625 -6.0933942794799805" visible="true" shadow="cast: false" ></a-entity>
+			<a-entity id="#Loli-Pink-Kugel-liegend" gltf-model="#Loli-Pink-Kugel-liegend"  scale="1 1 1" position="4.497555255889893 1.0720279216766357 4.424920558929443" visible="true" shadow="cast: false" ></a-entity>
+			<a-entity id="#Loli-Pink-Stiel-CW" gltf-model="#Loli-Pink-Stiel-CW"  scale="1 1 1" position="-8.022844314575195 0.8346439599990845 -6.094513893127441" visible="true" shadow="cast: false" ></a-entity>
+			<a-entity id="#Loli-Pink-Stiel-liegend" gltf-model="#Loli-Pink-Stiel-liegend"  scale="1 1 1" position="2.3515443801879883 0.4268525242805481 4.423229217529297" visible="true" shadow="cast: false" ></a-entity>
+			<a-entity id="#Plane" gltf-model="#Plane"  scale="1 1 1" position="0.0 0.0 -0.0" visible="true" shadow="cast: false" ></a-entity>
+			<a-entity id="#Zaeltli-Spirale--unten-01" gltf-model="#Zaeltli-Spirale--unten-01"  scale="1 1 1" position="1.525928020477295 -3.2101964950561523 -0.5213586091995239" visible="true" shadow="cast: false" ></a-entity>
+			<a-entity id="#Zaeltli-Spirale--unten-02" gltf-model="#Zaeltli-Spirale--unten-02"  scale="1 1 1" position="-7.1445770263671875 -3.7080860137939453 1.4017300605773926" visible="true" shadow="cast: false" ></a-entity>
+			<a-entity id="#Zaeltli-Spirale-CW" gltf-model="#Zaeltli-Spirale-CW"  scale="1 1 1" position="4.828827857971191 0.16581904888153076 -1.627711534500122" visible="true" shadow="cast: false" ></a-entity>
+			<a-entity id="#Zaeltli-Spirale-CW.001" gltf-model="#Zaeltli-Spirale-CW.001"  scale="1 1 1" position="5.544551372528076 0.16522216796875 -1.6077183485031128" visible="true" shadow="cast: false" ></a-entity>
+			<a-entity id="#Zaeltli-Spirale-CW.002" gltf-model="#Zaeltli-Spirale-CW.002"  scale="1 1 1" position="5.544551372528076 0.4786970615386963 -1.6077183485031128" visible="true" shadow="cast: false" ></a-entity>
+			<a-entity id="#Zaeltli-Spirale-CW.003" gltf-model="#Zaeltli-Spirale-CW.003"  scale="1 1 1" position="5.783552169799805 0.2738720178604126 -2.405097246170044" visible="true" shadow="cast: false" ></a-entity>
+			<a-entity id="#Zaeltli-Spirale-unten-03" gltf-model="#Zaeltli-Spirale-unten-03"  scale="1 1 1" position="-1.7430047988891602 -2.566783905029297 0.36844611167907715" visible="true" shadow="cast: false" ></a-entity>
+			<a-entity id="#Zaeltli-Spirale-unten-04" gltf-model="#Zaeltli-Spirale-unten-04"  scale="1 1 1" position="4.791178226470947 -2.9543471336364746 -4.380830764770508" visible="true" shadow="cast: false" ></a-entity>
+			<a-entity id="#zuckerstange" gltf-model="#zuckerstange"  scale="1 1 1" position="3.839751958847046 2.211017608642578 0.6510128974914551" visible="true" shadow="cast: false" ></a-entity>
+			<a-entity id="#zuckerstange.001" gltf-model="#zuckerstange.001"  scale="1 1 1" position="-1.2360519170761108 3.5225625038146973 -5.870696067810059" visible="true" shadow="cast: false" ></a-entity>
+			<a-entity id="#zuckerstange_unten" gltf-model="#zuckerstange_unten"  scale="1 1 1" position="-4.187565803527832 -2.475559949874878 -1.8446364402770996" visible="true" shadow="cast: false" ></a-entity>
+
+            <!-- Camera -->
+            <a-entity id="player" 
+                position="0 -0.2 0" 
+                movement-controls="speed: 0.10000000149011612;">
+                <a-entity id="camera" 
+                    camera="near: 0.001" 
+                    position="0 1.7000000476837158 0" 
+                    look-controls="pointerLockEnabled: true">
+                        <a-entity id="cursor" cursor="fuse: false;" animation__click="property: scale; startEvents: click; easing: easeInCubic; dur: 50; from: 	0.1 0.1 0.1; to: 1 1 1"
+                            position="0 0 -0.1"
+                            geometry="primitive: circle; radius: 0.001;"
+                            material="color: #CCC; shader: flat;"
+                            >
+                        </a-entity>
+                </a-entity>
+                    <a-entity id="leftHand" oculus-touch-controls="hand: left" vive-controls="hand: left"></a-entity>
+					<a-entity id="rightHand" laser-controls oculus-touch-controls="hand: right" vive-controls="hand: right" ></a-entity>
+            </a-entity>
+
+            <!-- Lights -->
+            
+			<a-entity position="4.076245307922363 5.903861999511719 -1.0054539442062378" light="castShadow:false; color:#ffffff; distance:40.0; type:point; intensity:1.0; shadowBias: -0.001; shadowCameraFar: 501.02; shadowCameraBottom: 12; shadowCameraFov: 101.79; shadowCameraNear: 0; shadowCameraTop: -5; shadowCameraRight: 10; shadowCameraLeft: -10; shadowRadius: 2;"></a-entity>
+			<a-entity position="4.076245307922363 8.42074966430664 -1.0054539442062378" light="castShadow:false; color:#ffffff; distance:40.0; type:point; intensity:1.0; shadowBias: -0.001; shadowCameraFar: 501.02; shadowCameraBottom: 12; shadowCameraFov: 101.79; shadowCameraNear: 0; shadowCameraTop: -5; shadowCameraRight: 10; shadowCameraLeft: -10; shadowRadius: 2;"></a-entity>
+
+            <!-- Sky -->
+            <a-sky color="#ECECEC"></a-sky>
+        </a-scene>
+    </body>
+</html>
+<!-- Generated automatically by AFRAME Exporter for Blender - https://silverslade.itch.io/a-frame-blender-exporter -->
+<!-- MIT License: https://github.com/silverslade/aframe_blender_exporter/blob/master/LICENSE -->
